@@ -56,7 +56,7 @@ export default function Todo(props) {
         <Card className='mt-4'>
             <Card.Header><h4 className='text-center'>TODO LIST</h4></Card.Header>
             <Card.Body>
-                {todoList.length==0 && <h5 className='text-center'>List Empty 😴</h5>}
+                {todoList.length===0 && <h5 className='text-center'>List Empty 😴</h5>}
                 {todoList}
 
             </Card.Body>
