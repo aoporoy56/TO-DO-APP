@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {Form, Button, Card} from 'react-bootstrap';
 import {FaBeer } from 'react-icons/fa';
-import {v4 as uuidv4} from 'uuid';
 
 export default function Todo(props) {
     let [values, valuesHandler] = useState({ title : '',  details : ''});
-    let todoList = props.sendTodoList.map((singleList, index) => (
+    let todoList = '';
+    todoList = props.sendTodoList.map((singleList, index) => (
         <Card className='mt-3 d-flex align-items-center flex-row' key={index}>
             <Card.Body>
                 <Card.Title>{singleList.title + " " + index}</Card.Title>
@@ -56,8 +56,9 @@ export default function Todo(props) {
         <Card className='mt-4'>
             <Card.Header><h4 className='text-center'>TODO LIST</h4></Card.Header>
             <Card.Body>
-                {todoList==''&& <h5 className='text-center'>List Empty 😴</h5>}
+                {todoList.length==0 && <h5 className='text-center'>List Empty 😴</h5>}
                 {todoList}
+
             </Card.Body>
         </Card>
     </div>
