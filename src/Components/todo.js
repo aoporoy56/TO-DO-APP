@@ -8,7 +8,7 @@ export default function Todo(props) {
     todoList = props.sendTodoList.map((singleList, index) => (
         <Card className='mt-3 d-flex align-items-center flex-row' key={index}>
             <Card.Body>
-                <Card.Title>{singleList.title + " " + index}</Card.Title>
+                <Card.Title>{singleList.title}</Card.Title>
                 <Card.Text>{singleList.details}</Card.Text>
             </Card.Body>
             <div style={{fontSize:'20px', paddingRight:'10px',color:'red', cursor:'pointer'}} onClick={()=>{deleteHandle(index)}}>
@@ -33,21 +33,21 @@ export default function Todo(props) {
     }
 
   return (
-    <div className='col-md-6'>
+    <div className='col-md-6 mt-4'>
         <Card>
             <Card.Header><h4 className='text-center'>ADD TODO</h4></Card.Header>
             <Card.Body>
-                <Form>
+                <Form onSubmit={addTodo}>
                     <Form.Group className='mb-3'>
                         {/* <Form.Label htmlFor='todoTitle'>Todo Title</Form.Label> */}
-                        <Form.Control type='text' id='todoTitle' placeholder='Enter Todo Title' value={values.title} onChange={titleHandler}/>
+                        <Form.Control type='text' id='todoTitle' placeholder='Enter Todo Title' value={values.title} onChange={titleHandler} required/>
                     </Form.Group>
                     <Form.Group className='mb-3'>
                         {/* <Form.Label htmlFor='todoTitle'>Todo Details</Form.Label> */}
-                        <Form.Control as='textarea' id='todoTitle' rows='3' placeholder='Enter Todo Details' value={values.details} onChange={detailsHandler} maxLength='30'/>
+                        <Form.Control as='textarea' id='todoTitle' rows='3' placeholder='Enter Todo Details' value={values.details} onChange={detailsHandler} maxLength='30' required/>
                     </Form.Group>
                     <div>
-                        <Button type='submit' onClick={addTodo}>Add TODO</Button>
+                        <Button type='submit'>Add TODO</Button>
                         <Button variant='secondary' type='reset' className='ms-3'>Clear</Button>
                     </div>
                 </Form>

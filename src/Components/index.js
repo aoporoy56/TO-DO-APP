@@ -8,10 +8,10 @@ export default function Index() {
     let getTodoHandler = (value) =>{
         todoListHandle([...todoList, value]);
     }
-    let getDeleteHandler = (index) => {
-        // todoListHandle(todoList.splice(index-1, 1));
-        // console.log(todoList);
-        alert("Working on it.");
+    let getDeleteHandler = (val) => {
+        todoListHandle(todoList.splice(3,1));
+        console.log(val);
+        // alert("Working on it.");
     }
 
   return (
